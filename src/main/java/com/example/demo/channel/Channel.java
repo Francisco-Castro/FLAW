@@ -1,4 +1,4 @@
-package com.example.demo.Channel;
+package com.example.demo.channel;
 
 import com.example.demo.message.Message;
 import com.example.demo.user.User;
@@ -74,7 +74,7 @@ public class Channel {
 
     @Override
     public String toString() {
-        return "Channel{" +
+        return "channel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", messages=" + messages +

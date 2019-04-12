@@ -12,7 +12,8 @@ public class MessageBody {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "messageBody"
+    )
     private List<Decorator> decorators;
 
     public MessageBody(List<Decorator> decorators) {

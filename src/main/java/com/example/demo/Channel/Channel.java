@@ -6,6 +6,7 @@ import com.example.demo.user.User;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Channel {
@@ -24,7 +25,6 @@ public class Channel {
         this.messages = new ArrayList<>();
         this.users = new ArrayList<>();
     }
-
 
     public Channel(String name, List<Message> messages, List<User> users){
         this.name = name;
@@ -54,5 +54,31 @@ public class Channel {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Channel channel = (Channel) o;
+        return Objects.equals(id, channel.id) &&
+                Objects.equals(name, channel.name) &&
+                Objects.equals(messages, channel.messages) &&
+                Objects.equals(users, channel.users);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, messages, users);
+    }
+
+    @Override
+    public String toString() {
+        return "Channel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", messages=" + messages +
+                ", users=" + users +
+                '}';
     }
 }

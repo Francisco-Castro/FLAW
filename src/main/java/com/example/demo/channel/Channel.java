@@ -26,6 +26,12 @@ public class Channel {
         this.users = new ArrayList<>();
     }
 
+    public Channel(String name){
+        this.name = name;
+        this.messages = new ArrayList<>();
+        this.users = new ArrayList<>();
+    }
+
     public Channel(String name, List<Message> messages, List<User> users){
         this.name = name;
         this.messages = messages;

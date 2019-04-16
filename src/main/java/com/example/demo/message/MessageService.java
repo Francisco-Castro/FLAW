@@ -1,5 +1,7 @@
 package com.example.demo.message;
 
+import com.example.demo.channel.Channel;
+import com.example.demo.channel.ChannelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,10 +9,12 @@ import org.springframework.stereotype.Service;
 public class MessageService {
 
     private MessageRepository messageRepository;
+    private ChannelRepository channelRepository;
 
     @Autowired
-    public MessageService(MessageRepository messageRepository) {
+    public MessageService(MessageRepository messageRepository, ChannelRepository channelRepository) {
         this.messageRepository = messageRepository;
+        this.channelRepository = channelRepository;
     }
 
     public Iterable<Message> index() {
@@ -35,5 +39,9 @@ public class MessageService {
     public Boolean delete(Long id) {
         messageRepository.deleteById(id);
         return true;
+    }
+
+    public Iterable<Message> findByChannel(Long id) {
+        return messageRepository.findByChannel(channelRepository.findById(id).get());
     }
 }

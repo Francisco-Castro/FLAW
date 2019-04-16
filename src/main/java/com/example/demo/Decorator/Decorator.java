@@ -1,8 +1,20 @@
 package com.example.demo.Decorator;
 
+import com.example.demo.message.messageBody.MessageBody;
 
-public interface Decorator {
+import javax.persistence.*;
 
-    void giveMessage();
+@Entity
+public abstract class Decorator {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private MessageBody messageBody;
+
+    void giveMessage() {
+
+    }
 
 }

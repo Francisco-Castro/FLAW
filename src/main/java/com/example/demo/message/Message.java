@@ -1,6 +1,7 @@
 package com.example.demo.message;
 
-import com.example.demo.message.MessageBody.MessageBody;
+import com.example.demo.channel.Channel;
+import com.example.demo.message.messageBody.MessageBody;
 import com.example.demo.user.User;
 
 import javax.persistence.*;
@@ -15,13 +16,16 @@ public class Message {
     private MessageBody messageBody;
     @OneToOne
     private User user;
+    @ManyToOne
+    private Channel channel;
 
     public Message() {
     }
 
-    public Message(MessageBody messageBody, User user) {
+    public Message(MessageBody messageBody, User user, Channel channel) {
         this.messageBody = messageBody;
         this.user = user;
+        this.channel = channel;
     }
 
     public Long getId() {
@@ -42,6 +46,14 @@ public class Message {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 
     @Override

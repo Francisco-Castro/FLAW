@@ -1,5 +1,6 @@
 package com.example.demo.message;
 
+import com.example.demo.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +39,11 @@ public class MessageController {
     @DeleteMapping("/message/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         return new ResponseEntity<>(messageService.delete(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/channel/{id}/messages")
+    public ResponseEntity<Iterable<Message>> findByChannel(@PathVariable Long id) {
+        return new ResponseEntity<>(messageService.findByChannel(id), HttpStatus.OK);
     }
 
 }

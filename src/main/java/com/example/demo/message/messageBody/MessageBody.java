@@ -1,4 +1,4 @@
-package com.example.demo.message.MessageBody;
+package com.example.demo.message.messageBody;
 
 import com.example.demo.Decorator.Decorator;
 
@@ -43,7 +43,7 @@ public class MessageBody {
 
     @Override
     public String toString() {
-        return "MessageBody{" +
+        return "messageBody{" +
                 "decorators=" + decorators +
                 '}';
     }

@@ -1,6 +1,6 @@
 package com.example.demo.Decorator;
 
-import com.example.demo.message.MessageBody.MessageBody;
+import com.example.demo.message.messageBody.MessageBody;
 
 import javax.persistence.*;
 

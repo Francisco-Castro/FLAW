@@ -35,7 +35,7 @@ public class ChannelController {
         return new ResponseEntity<>(channelService.update(id, channel), HttpStatus.OK);
     }
 
-    @DeleteMapping("/message/{id}")
+    @DeleteMapping("/channel/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id){
         return new ResponseEntity<>(channelService.delete(id), HttpStatus.OK);
     }

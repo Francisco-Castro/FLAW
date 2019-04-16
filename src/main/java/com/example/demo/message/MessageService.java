@@ -1,6 +1,5 @@
 package com.example.demo.message;
 
-import com.example.demo.channel.Channel;
 import com.example.demo.channel.ChannelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

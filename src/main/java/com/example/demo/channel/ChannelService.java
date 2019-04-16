@@ -1,16 +1,22 @@
 package com.example.demo.channel;
 
+import com.example.demo.user.User;
+import com.example.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ChannelService {
 
     private ChannelRepository channelRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    public ChannelService(ChannelRepository channelRepository){
+    public ChannelService(ChannelRepository channelRepository, UserRepository userRepository){
         this.channelRepository = channelRepository;
+        this.userRepository = userRepository;
     }
 
     public Iterable<Channel> index(){
@@ -37,5 +43,14 @@ public class ChannelService {
         channelRepository.deleteById(id);
         return true;
     }
+//
+//    public Channel addUser(Long id, Long userid){
+//        Channel originalChannel = channelRepository.findById(id).get();
+//        User newUser = userRepository.findById(userid).get();
+//        List<User> originalUserList = originalChannel.getUsers();
+//        originalUserList.add(newUser);
+//        originalChannel.setUsers(originalChannel.getUsers());
+//        return null;
+//    }
 
 }

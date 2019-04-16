@@ -1,5 +1,6 @@
 package com.example.demo.channel;
 
+import com.example.demo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,4 +40,9 @@ public class ChannelController {
     public ResponseEntity<Boolean> delete(@PathVariable Long id){
         return new ResponseEntity<>(channelService.delete(id), HttpStatus.OK);
     }
+
+//    @PutMapping("/channel/{id}/addUser")
+//    public ResponseEntity<Channel> addUser(@PathVariable Long id, @RequestBody Long userid){
+//        return new ResponseEntity<>(channelService.addUser(id, userid), HttpStatus.OK);
+//    }
 }

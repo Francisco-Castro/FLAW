@@ -1,10 +1,9 @@
 package com.example.demo.user;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.example.demo.channel.Channel;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +13,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userid;
     private String username;
+    @ManyToMany
+    private Channel channel;
 
     public User() { }
 

@@ -17,4 +17,11 @@ public abstract class Decorator {
 
     }
 
+    public MessageBody getMessageBody() {
+        return messageBody;
+    }
+
+    public void setMessageBody(MessageBody messageBody) {
+        this.messageBody = messageBody;
+    }
 }

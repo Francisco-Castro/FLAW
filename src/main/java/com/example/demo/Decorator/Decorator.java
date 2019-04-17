@@ -13,9 +13,7 @@ public abstract class Decorator {
     @ManyToOne(fetch = FetchType.LAZY)
     private MessageBody messageBody;
 
-    private void giveMessage() {
-
-    }
+    protected abstract String giveMessage();
 
     public MessageBody getMessageBody() {
         return messageBody;

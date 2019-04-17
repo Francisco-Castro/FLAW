@@ -13,7 +13,7 @@ public abstract class Decorator {
     @ManyToOne(fetch = FetchType.LAZY)
     private MessageBody messageBody;
 
-    void giveMessage() {
+    private void giveMessage() {
 
     }
 

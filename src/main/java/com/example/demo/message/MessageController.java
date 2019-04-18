@@ -40,10 +40,4 @@ public class MessageController {
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         return new ResponseEntity<>(messageService.delete(id), HttpStatus.OK);
     }
-
-    @GetMapping("/channel/{id}/messages")
-    public ResponseEntity<Iterable<Message>> findByChannel(@PathVariable Long id) {
-        return new ResponseEntity<>(messageService.findByChannel(id), HttpStatus.OK);
-    }
-
 }

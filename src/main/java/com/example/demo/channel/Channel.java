@@ -17,6 +17,7 @@ public class Channel {
     private String name;
     @OneToMany
     private List<Message> messages;
+
     @OneToMany
     private List<User> users;
 

@@ -40,8 +40,4 @@ public class MessageService {
         messageRepository.deleteById(id);
         return true;
     }
-
-    public Iterable<Message> findByChannel(Long id) {
-        return messageRepository.findByChannel(channelRepository.findById(id).get());
-    }
 }

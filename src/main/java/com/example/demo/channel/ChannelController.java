@@ -1,6 +1,5 @@
 package com.example.demo.channel;
 
-import com.example.demo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,29 +15,29 @@ public class ChannelController {
         this.channelService = channelService;
     }
 
-    @GetMapping("/channel/")
+    @GetMapping("/channels/")
     public ResponseEntity<Iterable<Channel>> index(){
         return new ResponseEntity<>(channelService.index(), HttpStatus.OK);
     }
 
-    @GetMapping("/channel/{id}")
+    @GetMapping("/channels/{id}")
     public ResponseEntity<Channel> show(@PathVariable Long id){
         return new ResponseEntity<>(channelService.show(id), HttpStatus.OK);
     }
 
-    @PostMapping("/channel/")
+    @PostMapping("/channels/")
     public ResponseEntity<Channel> create(@RequestBody Channel channel){
         return new ResponseEntity<>(channelService.create(channel), HttpStatus.CREATED);
     }
 
-    @PutMapping("/channel/{id}")
+    @PutMapping("/channels/{id}")
     public ResponseEntity<Channel> update(@PathVariable Long id, @RequestBody Channel channel){
         return new ResponseEntity<>(channelService.update(id, channel), HttpStatus.OK);
     }
 
-    @DeleteMapping("/channel/{id}")
+    @DeleteMapping("/channels/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id){
-        return new ResponseEntity<>(channelService.delete(id), HttpStatus.OK);
+        return new ResponseEntity<>(channelService.delete(id), HttpStatus.NO_CONTENT);
     }
 
 //    @PutMapping("/channel/{id}/addUser")
@@ -46,3 +45,4 @@ public class ChannelController {
 //        return new ResponseEntity<>(channelService.addUser(id, userid), HttpStatus.OK);
 //    }
 }
+

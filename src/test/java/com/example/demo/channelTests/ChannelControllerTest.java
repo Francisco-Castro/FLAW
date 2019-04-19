@@ -35,7 +35,7 @@ public class ChannelControllerTest {
         BDDMockito
                 .given(channelRepository.findById(givenId))
                 .willReturn(Optional.of(new Channel("New Channel", new ArrayList<>(), new ArrayList<>())));
-        String expectedContent = "{\"id\":null,\"name\":\"New Channel\",\"messages\":null,\"users\":null}";
+        String expectedContent = "{\"name\":\"New Channel\",\"messages\":[],\"users\":[]}";
         this.mvc.perform(MockMvcRequestBuilders
                 .get("/channels/" + givenId))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -49,7 +49,7 @@ public class ChannelControllerTest {
                 .given(channelRepository.save(channel))
                 .willReturn(channel);
 
-        String expectedContent="{\"id\":null,\"name\":\"New Channel\",\"messages\":null,\"users\":null}";
+        String expectedContent="{\"name\":\"New Channel\",\"messages\":[],\"users\":[]}";
         this.mvc.perform(MockMvcRequestBuilders
                 .post("/channels/")
                 .content(expectedContent)

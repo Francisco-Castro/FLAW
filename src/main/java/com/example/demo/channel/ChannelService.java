@@ -1,5 +1,6 @@
 package com.example.demo.channel;
 
+import com.example.demo.channel.channelUser.ChannelUserService;
 import com.example.demo.user.User;
 import com.example.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,12 @@ import java.util.List;
 public class ChannelService {
 
     private ChannelRepository channelRepository;
+    private ChannelUserService channelUserService;
 
     @Autowired
-    public ChannelService(ChannelRepository channelRepository){
+    public ChannelService(ChannelRepository channelRepository, ChannelUserService channelUserService){
         this.channelRepository = channelRepository;
+        this.channelUserService = channelUserService;
     }
 
     public Iterable<Channel> index(){

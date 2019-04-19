@@ -4,6 +4,7 @@ package com.example.demo.user;
 import com.example.demo.channel.Channel;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,7 +15,7 @@ public class User {
     private Long userid;
     private String username;
     @ManyToMany
-    private Channel channel;
+    private List<Channel> channels;
 
     public User() { }
 
